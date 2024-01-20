@@ -6,10 +6,7 @@ body {
   color: #ffffff;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-}
+
 
 header {
   background-color: #333;
@@ -23,16 +20,16 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
 }
 
 .query-section {
-  margin-bottom: 40px; /* Increased margin to move the textbox lower */
+  margin-bottom: 30px; /* Increased margin to move the textbox lower */
   width: 60%;
   margin: 40px auto 20px auto; /* Center the query box and adjust the position */
 }
 
-query-label {
+.query-section {
   display: block;
   font-size: 1.5em;
   color: #fff;
@@ -40,16 +37,16 @@ query-label {
   transition: color 0.3s ease; /* Added transition effect */
 }
 
-query-label:hover {
+.query-label:hover {
   color: #4caf50; /* Change text color on hover */
 }
 
 input[type="textbox"] {
-  width: 100%;
-  height: 100px;
+  width: 300px;
+  height: 30px;
   padding: 10px;
   font-size: 1.2em;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   background-color: #333;
   color: #fff;

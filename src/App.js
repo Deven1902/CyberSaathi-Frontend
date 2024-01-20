@@ -13,10 +13,10 @@ const App = () => (
       <Route path="/past-applications" element={<PastApplications />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/" element={<MainContent />} />
-      <Route path="/" element={<FirstScreen />} />
-      <Route path="/" element={<Screen2 />} />
+      <Route path="/firstscreen" element={<FirstScreen />} />
+      <Route path="/screen2" element={<Screen2 />} />
       <Route path="/" element={<NotFound />} />
-      
+
     </Routes>
     
   </div>
@@ -25,7 +25,7 @@ const App = () => (
 const Header = () => (
   <header>
     <Link to="/past-applications">Past Applications</Link>
-    <Link to="/screen2">Screen 1</Link>
+    <Link to="/screen2">Screen 2</Link>
     <Link to="/firstscreen">First screen</Link>
   </header>
 );
