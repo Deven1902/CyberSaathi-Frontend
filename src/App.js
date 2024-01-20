@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Link, Routes } from 'react-router-dom';
-import './App.css'; // Import the stylesheet
-import Screen2 from './Components/Screen2.jsx'
-import FirstScreen from './Components/FirstScreen';
+import './App.css'; // Import the stylesheet'
+import NotFound from './Components/404';
 
 const App = () => (
   <div className="container">
@@ -11,8 +10,6 @@ const App = () => (
       <Route path="/past-applications" element={<PastApplications />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/" element={<MainContent />} />
-      <Route path="/screen2" element={<Screen2 />} />
-      <Route path="/firstscreen" element={<FirstScreen />} />
     </Routes>
     
   </div>
