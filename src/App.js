@@ -2,8 +2,11 @@ import React from 'react';
 import { Route, Link, Routes } from 'react-router-dom';
 import './App.css'; // Import the stylesheet'
 import NotFound from './Components/404';
-import Screen2 from './Components/Screen2.jsx'
+import Screen2 from './Components/ScreenTwo.jsx'
 import FirstScreen from './Components/FirstScreen';
+import ScreenTwo from './Components/ScreenTwo';
+import ScreenThree from './Components/ScreenThree.jsx';
+import ScreenFour from './Components/ScreenFour.jsx';
 
 
 const App = () => (
@@ -13,10 +16,11 @@ const App = () => (
       <Route path="/past-applications" element={<PastApplications />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/" element={<MainContent />} />
-      <Route path="/firstscreen" element={<FirstScreen />} />
-      <Route path="/screen2" element={<Screen2 />} />
+      <Route path="/firstscreen" element={<ScreenTwo />} />
+      <Route path="/SecondScreen" element={<FirstScreen />} />
+      <Route path="/ThirdScreen" element={<ScreenThree/>}/>
+      <Route path="/FourthScreen" element={<ScreenFour/>}/>
       <Route path="/" element={<NotFound />} />
-
     </Routes>
     
   </div>
@@ -25,8 +29,10 @@ const App = () => (
 const Header = () => (
   <header>
     <Link to="/past-applications">Past Applications</Link>
-    <Link to="/screen2">Screen 2</Link>
+    <Link to="/SecondScreen">Screen 2</Link>
     <Link to="/firstscreen">First screen</Link>
+    <Link to="/ThirdScreen">ThirdScreen</Link>
+    <Link too="/FourthScreen">FourthScreen</Link>
   </header>
 );
 
