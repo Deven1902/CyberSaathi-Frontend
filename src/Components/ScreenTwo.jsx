@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const PageComponent = () => {
   const [email, setEmail] = useState(localStorage.getItem('email') || '');
   const [selectedCard, setSelectedCard] = useState(localStorage.getItem('selectedCard') || '');
+  
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     localStorage.setItem('email', email);
@@ -14,65 +17,78 @@ const PageComponent = () => {
     setSelectedCard(card);
   };
 
+  const handleSubmit = () => {
+    navigate('/SecondScreen', { state: { email } }); // Redirect to the second screen using navigate
+  };
+
   return (
     <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 40 }}>
       <h1 style={{ color: '#333' }}>Screen 1</h1>
-      <Row>
-        <Col md={4} style={{ marginRight: 20 }}>
-          <Form.Group>
-            <Form.Label>Email:</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{ marginBottom: 20 }}
-            />
-          </Form.Group>
-        </Col>
-        <Col md={7}>
-          <Row>
-            <Col md={6} style={{ marginBottom: 20 }}>
-              <Card
-                onClick={() => handleCardClick('COPYRIGHT')}
-                style={{
-                  cursor: 'pointer',
-                  backgroundColor: selectedCard === 'COPYRIGHT' ? '#3498db' : '#ecf0f1',
-                  border: '1px solid #3498db',
-                }}
-              >
-                <Card.Body>
-                  <Card.Title style={{ color: '#fff' }}>COPYRIGHT CONTENT</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={6} style={{ marginBottom: 20 }}>
-              <Card
-                onClick={() => handleCardClick('NUDITY')}
-                style={{
-                  cursor: 'pointer',
-                  backgroundColor: selectedCard === 'NUDITY' ? '#e74c3c' : '#ecf0f1',
-                  border: '1px solid #e74c3c',
-                }}
-              >
-                <Card.Body>
-                  <Card.Title style={{ color: '#fff' }}>NUDITY</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12} style={{ marginTop: 20 }}>
-          <Button
-            variant="primary"
-            onClick={() => console.log('Submit clicked:', email, selectedCard)}
-            style={{ backgroundColor: '#3498db', border: '1px solid #3498db' }}
+      <Form.Group style={{ width: '100%', textAlign: 'center' }}>
+        <Form.Label style={{ padding: 15 }}>Email address</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{ borderRadius: '10px', height: '45px' }}
+        />
+      </Form.Group>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20, padding: '50px' }}>
+          <Card
+            onClick={() => handleCardClick('COPYRIGHT')}
+            style={{
+              cursor: 'pointer',
+              flex: 1,
+              backgroundColor: selectedCard === 'COPYRIGHT' ? '#87CEEB' : '#87CEEB',
+              border: '1px solid black',
+              width: '200px', // Increase the width of the card
+              height: '150px', // Increase the height of the card
+              backgroundImage: 'url(legal_img.jpg)', // Replace 'legal_img.jpg' with the actual image file path
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
           >
-            Submit
+            <Card.Body>
+              <Card.Title style={{ color: '#fff' }}>
+
+              </Card.Title>
+            </Card.Body>
+          </Card>
+          <div style={{ textAlign: 'center', marginTop: '10px' }}>
+            COPYRIGHT
+          </div>
+          <Card
+            onClick={() => handleCardClick('NUDITY')}
+            style={{
+              cursor: 'pointer',
+              flex: 1,
+              backgroundColor: selectedCard === 'NUDITY' ? '#FF474C' : '#FF474C',
+              border: '1px solid black',
+              marginLeft: 20,
+              backgroundImage: 'url(nsfw_img.png)', // Replace 'legal_img.jpg' with the actual image file path
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <Card.Body>
+              <Card.Title style={{ color: '#fff' }}></Card.Title>
+            </Card.Body>
+          </Card>
+          <div style={{ textAlign: 'center', marginTop: '10px' }}>
+            NUDITY
+          </div>
+        </div>
+        <Col md={12} style={{ marginTop: 20 }}>
+            <Button
+            variant="primary"
+            onClick={handleSubmit} // Attach the handleSubmit function to the button
+            style={{ border: '1px solid #3498db', borderRadius: '10px', height: '50px', width: '200px', marginLeft: '40%', marginRight: 'auto' }}
+            >
+              Submit
           </Button>
         </Col>
-      </Row>
     </Container>
   );
 };

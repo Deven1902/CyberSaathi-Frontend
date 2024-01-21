@@ -7,6 +7,14 @@ import FirstScreen from './Components/FirstScreen';
 import ScreenTwo from './Components/ScreenTwo';
 import ScreenThree from './Components/ScreenThree.jsx';
 import ScreenFour from './Components/ScreenFour.jsx';
+import EmailTemplate from './Components/email.js';
+import HeroSection from './Components/hero.jsx';
+import Footer from './Components/Footer.jsx';
+import QueryPage from './Components/QueryPage.jsx'; 
+import ChatBot from './Components/ChatBot.js'; 
+import ImageSearch from './Components/ImageSearch.jsx';
+import Navbar from './Components/Navbar.jsx';
+import TextSearch from './CardComponents';
 
 
 const App = () => (
@@ -18,31 +26,41 @@ const App = () => (
       <Route path="/" element={<MainContent />} />
       <Route path="/firstscreen" element={<ScreenTwo />} />
       <Route path="/SecondScreen" element={<FirstScreen />} />
-      <Route path="/ThirdScreen" element={<ScreenThree/>}/>
-      <Route path="/FourthScreen" element={<ScreenFour/>}/>
+      <Route path="/ThirdScreen" element={<ScreenThree />} />
+      <Route path="/FourthScreen" element={<ScreenFour />} />
+      <Route path="/QueryPage" element={<QueryPage />} />
+      <Route path="/ChatBot" element={<ChatBot />} />
+      <Route path="/ImageSearch" element={<ImageSearch />} />
+      <Route path="/TextSearch" element={<TextSearch />} />
       <Route path="/" element={<NotFound />} />
+
     </Routes>
-    
   </div>
 );
 
 const Header = () => (
   <header>
-    <Link to="/past-applications">Past Applications</Link>
-    <Link to="/SecondScreen">Screen 2</Link>
-    <Link to="/firstscreen">First screen</Link>
-    <Link to="/ThirdScreen">ThirdScreen</Link>
-    <Link too="/FourthScreen">FourthScreen</Link>
+    <Link to="/firstscreen">First  </Link>
+    <Link to="/SecondScreen">Second  </Link>
+    <Link to="/ThirdScreen">Third  </Link>
+    <Link to="/FourthScreen">Fourth  </Link>
+    <Link to="/QueryPage">VectorSearch  </Link>
+    <Link to="ChatBot">ChatBot  </Link>
   </header>
 );
 
 const MainContent = () => (
   <main>
-    <div className="query-section">
+    {/* <div className="query-section">
       <QueryInput />
     </div>
     <DataDisplay />
-    <ChatButton />
+    <ChatButton /> */}
+    
+    {/* <Navbar/> */}
+    <HeroSection/>
+    {/* <EmailTemplate/> */}
+    <Footer/>
   </main>
 );
 
@@ -96,6 +114,10 @@ export default App;
 // import './App.css'; // Import the stylesheet
 // import Screen2 from './Components/Screen2.jsx'
 // import FirstScreen from './Components/FirstScreen';
+// import EmailTemplate from './Components/email';
+
+
+
 
 // const App = () => (
 //   <div className="container">
